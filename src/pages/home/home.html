@@ -1,14 +1,23 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Ionic Blank
+    <ion-title>Todo List
     </ion-title>
+    <ion-buttons end>
+      <button click = "add()"> <ion-icon name = "add"> </ion-icon> </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content class="todos">
+  <ion-list>
+    <ion-item-sliding *ngFor="let todo of todoList; let i = index">
+      <ion-item>
+        <h2>{{todo}}</h2>
+      </ion-item>
+        <ion-item-options>
+          <button danger (click) ="delate(i)">
+            <ion-icon name ="trash"> </ion-icon>
+          </button>
+        </ion-item-options>
+  </ion-list>
 </ion-content>
